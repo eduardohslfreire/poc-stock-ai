@@ -60,7 +60,7 @@ def auto_seed_if_needed(force: bool = False, verbose: bool = True) -> bool:
     try:
         # Import and run seed
         from database.seed_data import main as seed_main
-        seed_main()
+        seed_main(interactive=False)
         
         if verbose:
             print("\n✅ Database seeded successfully!")

@@ -800,7 +800,7 @@ class DataGenerator:
         print("=" * 60)
 
 
-def main():
+def main(interactive: bool = True):
     """Main execution function."""
     print("\n🎯 Starting data generation process...")
     
@@ -809,7 +809,11 @@ def main():
     init_db()
     
     # Ask if user wants to clean existing data
-    response = input("\n⚠️  Do you want to clean existing data first? [yes/no]: ").strip().lower()
+    if interactive:
+        response = input("\n⚠️  Do you want to clean existing data first? [yes/no]: ").strip().lower()
+    else:
+        response = 'no'
+    
     if response == 'yes':
         drop_all_tables()
         init_db()
